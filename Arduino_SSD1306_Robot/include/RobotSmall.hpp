@@ -1,10 +1,7 @@
-#include <Arduino.h>
+#include <SSD1306Common.hpp>
 
-#include <Wire.h>
-#include <Adafruit_GFX.h>
-#include <Adafruit_SSD1306.h>
+extern void ShowSmall();
 
-Adafruit_SSD1306 display(128, 64, &Wire, 4);
 static const unsigned char PROGMEM small1[] =
     {
         0x03, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xF0, 0x00, 0x07, 0xFF,
@@ -303,66 +300,3 @@ static const unsigned char PROGMEM small5[] =
         0xFF, 0xFF, 0xFF, 0xFF, 0xFE, 0x00, 0x0F, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF,
         0xFF, 0xFF, 0xFC, 0x00, 0x07, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF,
         0xF8, 0x00, 0x03, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xF0, 0x00};
-
-void setup()
-{
-    display.begin(SSD1306_SWITCHCAPVCC, 0x3C);
-}
-
-void loop()
-{
-    display.setTextColor(WHITE);
-    display.clearDisplay();
-    display.drawBitmap(8, 1, small1, 112, 64, 1);
-    display.display();
-    display.clearDisplay();
-    delay(1000);
-
-    display.setTextColor(WHITE);
-    display.clearDisplay();
-    display.drawBitmap(8, 1, small2, 112, 64, 1);
-    display.display();
-    display.clearDisplay();
-    delay(100);
-
-    display.setTextColor(WHITE);
-    display.clearDisplay();
-    display.drawBitmap(8, 1, small3, 112, 64, 1);
-    display.display();
-    display.clearDisplay();
-    delay(100);
-
-    display.setTextColor(WHITE);
-    display.clearDisplay();
-    display.drawBitmap(8, 1, small4, 112, 64, 1);
-    display.display();
-    display.clearDisplay();
-    delay(100);
-
-    display.setTextColor(WHITE);
-    display.clearDisplay();
-    display.drawBitmap(8, 1, small5, 112, 64, 1);
-    display.display();
-    display.clearDisplay();
-    delay(1000);
-
-    display.setTextColor(WHITE);
-    display.clearDisplay();
-    display.drawBitmap(8, 1, small5, 112, 64, 1);
-    display.display();
-    display.clearDisplay();
-    delay(100);
-
-    display.setTextColor(WHITE);
-    display.clearDisplay();
-    display.drawBitmap(8, 1, small4, 112, 64, 1);
-    display.display();
-    display.clearDisplay();
-    delay(100);
-
-    display.setTextColor(WHITE);
-    display.clearDisplay();
-    display.drawBitmap(8, 1, small3, 112, 64, 1);
-    display.display();
-    display.clearDisplay();
-}
